@@ -1,0 +1,37 @@
+{% extends 'library/base.html' %}
+{% block content %}
+
+
+<div class="profile" >
+    <br><br>
+    <h2>Login Page</h2>
+    <form action="{% url 'library:signin' %}" method="POST">{% csrf_token %}
+        <div class="form-group form-focus">
+            <label for="email" class="focus-label">Username</label>
+            <input type="text" id="email" name="email" size="30">
+            
+        </div>
+        <div class="form-group form-focus">
+            <label for="password" class="focus-label">Password</label>
+            <input type="password" id="password" name="password" size="30">
+         
+        </div>
+     
+        <div style="color:red;padding-bottom: 20px;">
+            {{error}}
+        </div>
+        <button class="btn btn-primary btn-block btn-sm login-btn" type="submit">Login</button>
+        <div class="login-or">
+            <span class="or-line"></span>
+            
+        </div>
+        <br>
+        <p><strong>Fill in the form to register for the library: </strong><a class="btn btn-sm btn-success" href="{% url 'library:user-signup' %}">Register</a></p>
+    </form>
+
+
+</div>
+
+
+
+{% endblock content %}

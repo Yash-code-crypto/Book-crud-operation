@@ -1,0 +1,42 @@
+
+
+{% extends 'library/base.html' %}
+{% block content %}
+
+
+<div class="profile" >
+
+    <h2>Sign Page</h2>
+    <form action="{% url 'library:user-signup' %}" method="POST">{% csrf_token %}
+        <div class="form-group form-focus">
+            <label class="focus-label">Email</label>
+            <input type="email" name="email" size="30">
+            
+        </div>
+        <div class="form-group form-focus">
+            <label class="focus-label">Username</label>
+            <input type="text" name="username" size="30">
+          
+        </div>
+        <div class="form-group form-focus">
+            <label class="focus-label">Password</label>
+            <input type="password" name="password" size="30">
+            
+        </div>
+        <div class="text-right">
+            <a class="forgot-link" href="{% url 'library:signin' %}">Already have an account?</a>
+        </div>
+        <div style="color:red;padding-bottom: 20px;">
+            {{error}}
+        </div>
+        <button class="btn btn-primary btn-block btn-lg login-btn" type="submit">Signup</button>
+        <div class="login-or">
+            <span class="or-line"></span>
+        </div>
+    </form>
+
+</div>
+
+
+
+{% endblock content %}
